@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "reflect": {
+      "command": "npx",
+      "args": ["-y", "reflect-mcp-connector@latest"],
+      "env": {
+        "REFLECT_ACCESS_TOKEN": "REDACTED",
+        "REFLECT_DEFAULT_GRAPH_ID": "OPTIONAL"
+      }
+    }
+  }
+}

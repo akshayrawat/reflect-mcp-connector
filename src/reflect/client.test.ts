@@ -4,7 +4,7 @@ import { ReflectClient } from "./client.js";
 import { ReflectApiError } from "../util/errors.js";
 
 function mockFetchOk(json: unknown) {
-  return vi.fn<typeof fetch>(async (_input, _init) => {
+  return vi.fn<typeof fetch>(async () => {
     return {
       ok: true,
       status: 200,
@@ -46,7 +46,7 @@ describe("ReflectClient", () => {
   });
 
   it("throws ReflectApiError on non-2xx responses", async () => {
-    const fetchMock = vi.fn<typeof fetch>(async (_input, _init) => {
+    const fetchMock = vi.fn<typeof fetch>(async () => {
       return {
         ok: false,
         status: 401,

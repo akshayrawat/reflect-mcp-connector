@@ -24,7 +24,7 @@ Most MCP clients need:
 
 - a command (recommended: `npx`)
 - args (recommended: `-y reflect-mcp-connector@latest`)
-- environment variables (`REFLECT_ACCESS_TOKEN`, optionally `REFLECT_DEFAULT_GRAPH_ID`)
+- environment variables (`REFLECT_ACCESS_TOKEN`)
 
 If you publish this under a different npm package name (e.g. a scope), replace `reflect-mcp-connector@latest` accordingly.
 
@@ -39,8 +39,7 @@ In `claude_desktop_config.json`, add:
       "command": "npx",
       "args": ["-y", "reflect-mcp-connector@latest"],
       "env": {
-        "REFLECT_ACCESS_TOKEN": "REDACTED",
-        "REFLECT_DEFAULT_GRAPH_ID": "OPTIONAL"
+        "REFLECT_ACCESS_TOKEN": "REDACTED"
       }
     }
   }
@@ -48,6 +47,8 @@ In `claude_desktop_config.json`, add:
 ```
 
 You can also copy `examples/claude_desktop_config.json` and edit the paths/env.
+
+Optional: set `REFLECT_DEFAULT_GRAPH_ID` to a specific graph id so you don’t need to pass `graphId` to every tool call.
 
 If you prefer not to use `npx`, you can install globally and set `command` to `reflect-mcp-connector`:
 
@@ -60,18 +61,20 @@ npm install -g reflect-mcp-connector
 Add the server via the Claude Code CLI:
 
 ```bash
-claude mcp add -e REFLECT_ACCESS_TOKEN="REDACTED" -e REFLECT_DEFAULT_GRAPH_ID="OPTIONAL" reflect -- npx -y reflect-mcp-connector@latest
+claude mcp add -e REFLECT_ACCESS_TOKEN="REDACTED" reflect -- npx -y reflect-mcp-connector@latest
 ```
 
-Omit `-e REFLECT_DEFAULT_GRAPH_ID=...` if you don’t want to set a default graph.
+Optional: add `-e REFLECT_DEFAULT_GRAPH_ID="..."` to set a default graph.
 
 #### Codex
 
 Add the server via the Codex CLI:
 
 ```bash
-codex mcp add reflect --env REFLECT_ACCESS_TOKEN="REDACTED" --env REFLECT_DEFAULT_GRAPH_ID="OPTIONAL" -- npx -y reflect-mcp-connector@latest
+codex mcp add reflect --env REFLECT_ACCESS_TOKEN="REDACTED" -- npx -y reflect-mcp-connector@latest
 ```
+
+Optional: add `--env REFLECT_DEFAULT_GRAPH_ID="..."` to set a default graph.
 
 ### 3) Try it
 

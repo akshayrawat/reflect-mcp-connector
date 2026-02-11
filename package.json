@@ -1,6 +1,6 @@
 {
   "name": "reflect-mcp-connector",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Reflect.app MCP connector (Model Context Protocol server).",
   "type": "module",
   "license": "MIT",

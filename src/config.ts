@@ -51,4 +51,3 @@ export function loadAuthConfig(env: NodeJS.ProcessEnv): AuthConfig {
     redirectUri: parsed.data.REFLECT_OAUTH_REDIRECT_URI ?? "http://127.0.0.1:8787/callback",
   };
 }
-

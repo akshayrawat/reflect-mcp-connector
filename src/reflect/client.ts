@@ -1,4 +1,10 @@
-import type { ReflectBook, ReflectGraph, ReflectLink, ReflectSuccess, ReflectUser } from "./types.js";
+import type {
+  ReflectBook,
+  ReflectGraph,
+  ReflectLink,
+  ReflectSuccess,
+  ReflectUser,
+} from "./types.js";
 import { ReflectApiError } from "../util/errors.js";
 
 type HttpMethod = "GET" | "POST" | "PUT";
@@ -40,7 +46,11 @@ export class ReflectClient {
     graphId: string,
     link: Partial<ReflectLink> & { url: string },
   ): Promise<ReflectLink> {
-    return this.#requestJson<ReflectLink>("POST", `/graphs/${encodeURIComponent(graphId)}/links`, link);
+    return this.#requestJson<ReflectLink>(
+      "POST",
+      `/graphs/${encodeURIComponent(graphId)}/links`,
+      link,
+    );
   }
 
   async appendDailyNote(
@@ -61,7 +71,11 @@ export class ReflectClient {
     graphId: string,
     body: { subject: string; content_markdown: string; pinned?: boolean },
   ): Promise<ReflectSuccess> {
-    return this.#requestJson<ReflectSuccess>("POST", `/graphs/${encodeURIComponent(graphId)}/notes`, body);
+    return this.#requestJson<ReflectSuccess>(
+      "POST",
+      `/graphs/${encodeURIComponent(graphId)}/notes`,
+      body,
+    );
   }
 
   async resolveDefaultGraphId(explicitGraphId?: string): Promise<string> {

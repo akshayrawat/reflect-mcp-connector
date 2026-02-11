@@ -23,4 +23,3 @@ describe("loadAuthConfig", () => {
     expect(cfg.redirectUri).toBe("http://127.0.0.1:8787/callback");
   });
 });
-

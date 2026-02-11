@@ -5,11 +5,7 @@ import { URL } from "node:url";
 import { loadAuthConfig } from "../config.js";
 
 function base64UrlEncode(buf: Buffer): string {
-  return buf
-    .toString("base64")
-    .replaceAll("+", "-")
-    .replaceAll("/", "_")
-    .replaceAll("=", "");
+  return buf.toString("base64").replaceAll("+", "-").replaceAll("/", "_").replaceAll("=", "");
 }
 
 function sha256Base64Url(input: string): string {

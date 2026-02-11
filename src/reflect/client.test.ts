@@ -59,4 +59,3 @@ describe("ReflectClient", () => {
     await expect(client.getMe()).rejects.toBeInstanceOf(ReflectApiError);
   });
 });
-

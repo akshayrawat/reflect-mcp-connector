@@ -123,6 +123,18 @@ cp .env.example .env
 npm run dev
 ```
 
+### Publishing a new version
+
+This repo publishes to npm via GitHub Actions on version tags (`v*`). Prereq: set the `NPM_TOKEN` GitHub Actions secret with an npm token that can publish `reflect-mcp-connector`.
+
+```bash
+# bump version + create git tag (vX.Y.Z)
+npm version patch   # or minor / major
+
+# push commit + tag to trigger release workflow
+git push --follow-tags
+```
+
 ## Security
 
 - Never commit tokens or OAuth secrets.

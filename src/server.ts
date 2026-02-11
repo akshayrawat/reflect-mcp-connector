@@ -97,11 +97,7 @@ export async function startMcpServer(): Promise<void> {
     {
       graphId: z.string().min(1).optional().describe("Reflect graph id (optional)."),
       text: z.string().min(1).describe("Text to append."),
-      date: z
-        .string()
-        .min(1)
-        .optional()
-        .describe("ISO 8601 date (YYYY-MM-DD). Defaults to today."),
+      date: z.string().min(1).optional().describe("ISO 8601 date (YYYY-MM-DD). Defaults to today."),
       listName: z
         .string()
         .min(1)
